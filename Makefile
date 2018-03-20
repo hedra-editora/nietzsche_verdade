@@ -1,23 +1,26 @@
-all:
-	svn propset svn:keywords "Date Id Rev" *.tex
-	pdflatex NIETZSCHE.tex
-	evince NIETZSCHE.pdf
-dub:
-	svn propset svn:keywords "Date Id Rev" *.tex
-	pdflatex NIETZSCHE.tex	
-	pdflatex NIETZSCHE.tex
-	evince NIETZSCHE.pdf
-tags:
-	 svn copy ../trunk/ svn://dev.hedra.com.br/hedra/<LIVRO>/tags/release-1.0 -m "primeira edição"
+TITULO = "MI_TRANS_PASSARO_MIOLO"
+GIT = `git log -1 --date=short --format=format:'%h'`
 
-dic:
-	@echo "personal_ws-1.1 pt_BR `cat *.tex | aspell -l pt_BR -t list | sort | uniq | wc -l` utf-8" > dic.pws
-	@cat *.tex | aspell -l pt_BR -t list | sort | uniq >> dic.pws
-	sh dic.sh
+all:
+	git log -1 --date=short --format=format:'\newcommand{\RevisionInfo}{%h}' > gitrevisioninfo.sty
+	latexmk -xelatex LIVRO.tex
+rename:
+	cp LIVRO.pdf $(TITULO)_MIOLO_$(GIT).pdf
+clean_arquivosgerais:
+	mv ~/Dropbox/ARQUIVOS_GERAIS/$(TITULO)_MIOLO_* ~/Dropbox/ARQUIVOS_GERAIS/OLD/
+delivery:
+	cp $(TITULO)_MIOLO_$(GIT).pdf ~/Dropbox/ARQUIVOS_GERAIS/
+	echo $(GIT) '--- Entregue em' "$$(date)" >> ENTREGAS.txt
+
 erros:
-	@cat *.tex | aspell --extra-dicts=./dic.pws -t list | sort | uniq
-corrige:
-	clear 
-	sh dic.sh
+	-grep --color=auto "LaTeX Error" LIVRO.log
+	-grep --color=auto -A 3 "Undefined" LIVRO.log
+test:
+	xelatex LIVRO.tex
+	xelatex LIVRO.tex
+	evince LIVRO.pdf
 clean:
-	rm *.aux *.dvi *.log NIETZSCHE.pdf *.ps *.toc
+	-rm *xdv *aux *log *tui *toc *.4ct *.4tc *.html *.css *.dvi *.epub *.lg *.ncx *.xref *.tmp *.idv *.opf *.fls *_latexmk LIVRO.pdf
+	-rm -rf EBOOK-epub
+	-rm -rf EBOOK-epub3
+	-rm -rf EBOOK-mobi
