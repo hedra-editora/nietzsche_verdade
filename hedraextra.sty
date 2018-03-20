@@ -1,0 +1,208 @@
+% versalete
+\newcommand{\versal}[1]{\begingroup\normalfont\textsc{\MakeTextLowercase{#1}}\endgroup}
+
+% implementações do Verse.sty
+\newcommand{\qb}[1]{\hfil\break\mbox{}\hfill\hbox{\textnormal{[}\,#1}}
+\newcommand{\tamanhoverso}[1]{\settowidth{\versewidth}{#1}}
+
+% translineação
+\defineshorthand{"-}{\discretionary{-}{-}{-}} 
+
+%\footnoteInSection para colocar notas em seções, capítulos etc. 
+\RequirePackage{manyfoot}
+\newcommand{\footnoteInSection}[1]{\NoCaseChange{\linespread{1.0}\mbox{}\protect\Footnote{{\Large$^\dagger$}}{#1}}}
+
+% Tamanho da fonte
+\newcommand{\fonte}[2][\fontsize]{{\fontsize{#1}{\baselineskip}\selectfont #2}}
+
+% \fichacatalografica
+
+  % Contar páginas
+\RequirePackage{everyshi}
+\let\totalpages\relax
+\newcounter{mypage}
+\EveryShipout{\stepcounter{mypage}}
+\AtEndDocument{\clearpage
+\immediate\write\@auxout{%
+\string\gdef\string\totalpages{\themypage}}}
+
+\newcommand{\fichacatalografica}[7]{
+				{\fontsize{8pt}{8.5pt}\selectfont
+				\mbox{Dados Internacionais de Catalogação  na Publicação (CIP)}\\
+                                \vspace{0.5ex}\hrule\vspace{1ex}
+				
+				\hbox{\raggedright\parindent=0pt
+				#1\hskip2mm 
+				\vtop{#2\\\smallskip
+                                     #3 \totalpages{}\,p.}}
+				\medskip
+
+			        \textsc{isbn} #4
+
+ 				\medskip
+ 
+				\raggedright
+               			\textln{#5}
+                                \mbox{}\kern48mm\hbox{\vbox{\textsc{cdu} #6\\
+					    	  \textsc{cdd} #7}}
+				
+				\vspace{1ex}\hrule\vspace{1ex}
+				\mbox{Elaborado por Wanda Lucia Schmidt \textsc{crb-8-1922}}
+				\linebreak
+                                }
+}
+
+% "hedratoc" para ser usado com o shorttoc
+\newcommand{\hedrashorttoc}{
+\ifodd\thepage\clearpage\else\paginabranca\fi
+\def\contentsname{índice}
+\addcontentsline{toc}{chapter}{Índice}
+\tableofcontents}
+
+
+% hiphenation
+\hyphenation{poe-ma poe-ta poe-sia poe-sias Poe-sia Poe-sias}
+
+% estabelece que catítulos começarao à esquerda
+\newcommand{\oneside}{
+\makeatletter
+\renewcommand\chapter{\if@openright\clearpage\else\clearpage\fi
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother}
+
+\newcommand{\twoside}{
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+\makeatother}
+
+
+
+% astrogolia (a fonte deve ser instalada)
+\newcommand{\caractere}[4][1]{%
+    \fontsize{#3}{#1}%
+    \usefont{T1}{#2}{m}{n}%
+    #4%
+}
+
+% EPIGRAPH
+\RequirePackage{epigraph}
+
+%\renewcommand{\epigraphflush}{flushleft}  % ativar se quiser jogar para a esquerda
+%\renewcommand{\textflush}{flushright}
+\renewcommand{\epigraphsize}{\footnotesize}
+\setlength{\epigraphwidth}{.7\textwidth}
+\renewcommand{\@epirule}{\kern3ex}
+
+% fala
+\newcommand{\fala}[1]{\noindent\hskip-2ex\textsc{#1} --}
+
+% secpoem         
+\newcommand{\secpoem}[1]{%
+				{\centering
+				\Large\textsc{#1}
+				\par}
+     			}
+
+
+\newcommand\sectioncenter[1]{%
+   \par\addvspace{1ex}%
+   \bgroup\centering\Large\scshape #1%
+   \par\nobreak\egroup\par\nobreak%
+   \addvspace{.2ex}%
+}
+
+% hedraquote 
+
+% tamanho dentro do hedraquote 
+\newcommand{\hedraquotesize}{\small}
+\newcommand{\hedraquoteauthorsize}{\footnotesize}
+
+\newenvironment{hedraquote}[1][]{%
+	\def\@quoteauthor{#1}%
+	\begingroup
+	\begin{list}{}{%
+		\setlength{\listparindent}{3ex}%
+		\setlength{\labelsep}{0mm}%
+		\setlength{\leftmargin}{0mm}%
+		\setlength{\rightmargin}{0mm}%
+		\setlength{\topsep}{1ex}
+		\setlength{\partopsep}{0mm}
+		\setlength{\parskip}{0mm}
+		\setlength{\lineskip}{0mm}
+		\setlength{\parsep}{0ex}%
+		}%
+		\hedraquotesize%
+		\item%
+}{%
+	\end{list}%
+	\endgroup%
+}
+
+% asterisc 
+\newcommand\asterisc{\vspace{-1ex}\begin{center}***\vspace{-2ex}\end{center}}
+
+% paginabranca 
+\newcommand{\paginabranca}{\newpage\hbox{~}\thispagestyle{empty}\newpage}
+
+% ordinais
+\newcommand{\ai}{\textsuperscript{a}}
+\newcommand{\oi}{\textsuperscript{o}}
+
+% Número romano
+\newcommand{\romano}[1]{\textsc{{\romannumeral#1}}}
+
+% comandinho para aumentar ou diminuir a mancha
+\newcommand*\EP[1][-1]{\enlargethispage*{#1\baselineskip}}
+
+% bibliohedra 
+\newcommand{\tit}[1]{\item[\MakeTextLowercase{\textsc{#1}}]}
+\newcommand{\titidem}{\item[\line(1,0){25}]}
+
+\newenvironment{bibliohedra}[1][bibliografia]{%
+	\frenchspacing\section*{\MakeTextLowercase{#1}}\vspace{2ex} 
+%	\setlength\parindent{0ex}
+	\footnotesize
+		\begin{list}{}{
+				\setlength\leftmargin{4mm}	% identação do texto principal em
+								% relação à margem da 'página'
+				\setlength\rightmargin{0mm}
+				\setlength\labelwidth{4mm}	% tamanho "esperado" da caixa de rótulo
+								% define também o recuo usado
+		%
+		%		\setlength\listparindent{3mm}	% tamanho da identação dos parágrafos
+								% dentro do ítem
+		%
+				\setlength\labelsep{0mm}	% espaço entre rótulo e descrição
+				\setlength\parsep{0mm}		% espaço entre parágrafos de um item
+				\setlength\itemsep{1mm}		% espaço entre items
+				\setlength\lineskip{0mm}	% espaçamento entre linhas
+		}
+
+	}%
+	{\end{list}}
+
+
+% subtitulo
+\RequirePackage{textcase}
+\newcommand{\subtitulo}[1]{\NoCaseChange{\textnormal{\break\Large\itshape#1}}}
+
+% sectionitem 
+\newcounter{@sectionNumCenter}[chapter]% ou [section] caso seja o efeito desejado
+\renewcommand\the@sectionNumCenter{\roman{@sectionNumCenter}}
+
+\newcommand\sectionitem{%
+   \par\addvspace{1ex plus 1em minus .3ex }%
+   \refstepcounter{@sectionNumCenter}%
+   \bgroup\centering\Large\scshape%
+   \the@sectionNumCenter%
+   \par\nobreak\egroup\par\nobreak%
+   \addvspace{.3ex}%
+}
+

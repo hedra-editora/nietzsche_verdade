@@ -1,0 +1,104 @@
+\documentclass[12pt]{hedrabook}
+\usepackage[brazilian]{babel}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[svn,center,cam,a5]{hedracrop}
+\usepackage{hedrabolsolayout,hedraextra}
+\usepackage{hedratoc}
+\usepackage[protrusion=true,expansion]{microtype}
+\usepackage{comment,lipsum,footmisc}
+\usepackage[minionint,mathlf]{MinionPro}
+%\usepackage{gmverse}
+%\usepackage{hedraebook}		   % hyperlinks: todos os \part têm que estar em CAIXA BAIXA
+%\usepackage{makeidx,hedraindex}  % cria índice
+%\makeindex			   % ...  índice
+
+\begin{document}
+\SVN $Id: NIETZSCHE.tex 9446 2011-07-25 16:22:25Z oliveira $
+
+
+\selectlanguage{brazilian}
+\title{Sobre verdade e mentira} %O príncipe
+\author{Nietzsche} %Maquiavel
+\begingroup\pagestyle{empty}
+%\begin{blackpages}
+	\maketitle
+	\begin{techpage}{5cm}
+		\vspace{-1cm}
+		\putline{Copyright}{Hedra 2008}
+		\putline{Tradução$^\copyright$}{Fernando de Moraes Barros} %Preencher
+		\putline{Título original}{\textit{Über Wahrheit und Lüge im außermoralischen Sinn}}
+%		\putline{Título original}{}
+%		\putline{Edição consultada}{\emph{ }, }
+%		\putline{Primeira edição}
+%		\putline{Indicação}{}
+%		\putline{Agradecimento}
+		\putline{Corpo editorial}{
+			Adriano Scatolin,\\
+			Alexandre B.~de Souza,\\
+			Bruno Costa,
+			Caio Gagliardi,\\
+			Fábio Mantegari,
+			Iuri Pereira,\\
+			Jorge Sallum,
+			Oliver Tolle,\\
+ 		   	Ricardo Musse,
+			Ricardo Valle
+		}
+		\ \\
+
+		\putline{Dados}{\fichacatalografica{}% Código de autor
+				% Autor (data nascimento--morte)
+				{Nietzsche, Friedrich (1844--1900)}% 
+				% Dados bibliográficos
+				{Sobre verdade e mentira. / Friedrich Nietzsche. 
+				Tradução e organização de Fernando de Moraes Barros.
+				--- São Paulo: Hedra, 2008. (Estudos Libertários).}%
+				% Isbn
+				{978-85-7715-074-8}%
+				% Catalogação. Ex. 1.~Blabla.(Não esquecer ~)
+				{1.~Filosofia Alemã. 2.~Friedrich Nietzsche.  
+				\textsc{i}.~Título. \textsc{ii}.~Série. \textsc{iii}.~Barros, Fernando de Moraes, Tradutor.}%
+				%CDU
+				{193}
+				%CDD 
+				{193} %
+			       }
+		\direitos
+		\dadoseditora
+		\depositolegal
+	\end{techpage}
+	\begin{frontispiciopage}{4cm}{}	
+	\putline{Organização e tradução}{\textsc{Fernando de\\Moraes Barros}}
+	\end{frontispiciopage}
+\include{PRETAS}
+
+% Coloca página preta vazia à direita se texto preencher apenas uma página
+\ifodd\thepage\paginabranca\fi
+
+%\end{blackpages}
+\endgroup
+\setcounter{tocdepth}{0}     % amplitude da presença das partes no índice
+\setcounter{secnumdepth}{-2} % amplitude da numeração das partes
+
+\hedratoc
+
+% Favor não alterar o segundo parâmetro (\baselineskip). 
+% Para acertar entrelinhas, usar comando \linespread
+%\fontsize{10.5pt}{\baselineskip}\selectfont
+\baselineskip=14.4pt   % Parâmetro válido apenas para corpo 10.5, para outros, acrescer 20% do valor do corpo%%
+
+
+\include{INTRO}
+\part{Sobre verdade e mentira} 
+
+\setcounter{tocdepth}{-1}     % amplitude da presença das partes no índice
+\include{TEXTO}
+%\part{APENDICE}
+%\printindex
+
+\include{FINAIS}
+
+\ifdefined\printcheck\printcheck\fi
+
+\end{document}
