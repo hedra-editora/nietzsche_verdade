@@ -20,7 +20,8 @@
 *.lg 
 *.ncx 
 *.xref 
-*.tmp 
+*.tmp
+*.xdv 
 *.idv 
 *.opf
 gitrevisioninfo.sty
