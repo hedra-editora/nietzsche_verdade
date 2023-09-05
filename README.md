@@ -5,7 +5,7 @@
 - [X] Limpeza de arquivo (Ex: Sujeiras de conversão; negritos; etc)
 - [ ] Padronização: Aspas
 - [ ] Padronização: Itálicos
-- [ ] Padronização: Travessão e meia risca
+- [X] Padronização: Travessão e meia risca
 - [ ] Padronização: Versaletes
 - [ ] Padronização: Epígrafes
 - [ ] Padronização: Versos
