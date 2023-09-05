@@ -1,15 +1,15 @@
 # Primeira diagramação
 - [ ] Estruturação de níveis (Ex: Chapter)
-- [ ] Tamanho e tipo da fonte
-- [ ] Formato do livro
-- [ ] Limpeza de arquivo (Ex: Sujeiras de conversão; negritos; etc)
+- [X] Tamanho e tipo da fonte
+- [X] Formato do livro
+- [X] Limpeza de arquivo (Ex: Sujeiras de conversão; negritos; etc)
 - [ ] Padronização: Aspas
 - [ ] Padronização: Itálicos
 - [ ] Padronização: Travessão e meia risca
 - [ ] Padronização: Versaletes
 - [ ] Padronização: Epígrafes
 - [ ] Padronização: Versos
-- [ ] Padronização: Citações
+- [X] Padronização: Citações
 - [ ] Padronização: Espaço fino
 - [ ] Padronização: Espaço fino entre ldots e parênteses
 - [ ] Padronização: Pontuação das notas de rodapé (Ex: Antes ou depois da nota)
