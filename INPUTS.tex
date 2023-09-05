@@ -1,0 +1,40 @@
+% Este documento tem a ver com as partes do LIVRO. 
+
+
+
+\input{1-fronte}       % [Frontistício]
+\input{2-creditos}     % [Créditos]
+\input{3-rosto}	       % [folha de rosto]
+\input{PRETAS}
+
+% nothing			is level -3
+% \book				is level -2
+% \part				is level -1
+% \chapter 			is level 0
+% \section 			is level 1
+% \subsection 		is level 2
+% \subsubsection 	is level 3
+% \paragraph 		is level 4
+% \subparagraph 	is level 5
+\setcounter{secnumdepth}{-3}
+\setcounter{tocdepth}{0}
+
+
+% \renewcommand{\contentsname}{Índex} 	% Trocar nome do sumário para 'Índex'
+\ifodd\thepage\relax\else\blankpage\fi 	% Verifica se página é par e coloca página branca
+\tableofcontents*
+\input{INTRO}
+\input{TEXTO.tex}
+
+% Indice remissivo (package: `\usepackage{makeidx}` e no início do arquivi `\makeindex`
+% \printindex
+
+% Indice{}
+% \renewcommand{\contentsname}{Índice}
+% \setcounter{tocdepth}{3}
+% \tableofcontents
+
+% \endnotes
+
+\input{Y-publicidade}	   % [lista de livros publicados]
+\input{Z-colofon}		   % [colofon]
