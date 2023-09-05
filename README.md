@@ -10,8 +10,7 @@
 - [ ] Padronização: Epígrafes
 - [ ] Padronização: Versos
 - [X] Padronização: Citações
-- [ ] Padronização: Espaço fino
-- [ ] Padronização: Espaço fino entre ldots e parênteses
+- [X] Padronização: Espaço fino
 - [ ] Padronização: Pontuação das notas de rodapé (Ex: Antes ou depois da nota)
 - [ ] Padronização: Reticências
 
